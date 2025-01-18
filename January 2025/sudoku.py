@@ -41,11 +41,11 @@ class Sudoku:
             return False
         else:
             for i in range(0, len(self.grid)):
-                if self.grid[row][i] == digit:
+                if self.grid[row][i] == digit and col != i:
                     return False
             
             for j in range(0, len(self.grid)):
-                if self.grid[j][col] == digit:
+                if self.grid[j][col] == digit and row != j:
                     return False
                 
             return True
@@ -112,47 +112,28 @@ class Sudoku:
     
     # Method to find all possible solutions
 
-    def _solve(self) -> list[list[list[int]]]:
+    def solve(self) -> list[list[list[int]]]:
         """
         Return a list of all solved grids.
         """
         result = []
-        '''
-        if self.solved():
-            return [self.grid]
-        elif self._is_contradiction(start_x, start_y):
-            return []
-        else:
-            if self._has_digit(start_x, start_y):
-                result.extend(self._solve(start_x, start_y + 1))
-            elif start_y == 8:
-                result.extend(self._solve(start_x + 1, 0))
-            else:
-                for digit in self.digits:
-                    self.grid[start_x][start_y] = digit
-                    result.extend(self._solve(start_x, start_y + 1))
-                    self.grid[start_x][start_y] = -1 # remove the added number, go to a new one
-        '''
+        
         if self.solved():
             g = copy.deepcopy(self.grid)
             return [g]
         else:
-            x, y = self.find_empty()[0], self.find_empty[1]
+            x, y = self.find_empty()
             if self._is_contradiction(x, y):
                 return []
             else:
                 for number in self.digits:
                     if self._can_place(number, x, y):
                         self.grid[x][y] = number
-                        result.extend(self._solve())
+                        result.extend(self.solve())
                         self.grid[x][y] = -1
         
         return result
-    
-    # def solve(self) -> list[list[list[int]]]:
-    #   return self._solve(0, 0)
-        
-        
+
     
 if __name__ == '__main__':
     sudoku = Sudoku([[-1, -1, -1, 3, -1, -1, -1, -1, 7],
@@ -168,10 +149,10 @@ if __name__ == '__main__':
     
     s = sudoku.solve()
     print(len(s))
-    # for i in range(0, len(s)):
-    #    print(s[i])
-    #    print('\n')
-    '''
+    for i in range(0, len(s)):
+        print(s[i])
+        print('\n')
+    
     print(sudoku._has_digit(0, 0))
     print(sudoku._check_row_and_col(3, 0, 2))
     print(sudoku._check_row_and_col(4, 1, 1))
@@ -179,4 +160,4 @@ if __name__ == '__main__':
     print(sudoku._check_square(4, 0, 0))
     print(sudoku._check_square(2, 8, 0))
     print(sudoku._check_square(5, 8, 2))
-    '''
+    
