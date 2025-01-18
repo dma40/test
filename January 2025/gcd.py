@@ -1,4 +1,4 @@
-def gcd(x, y) -> int:
+def gcd(x: int, y: int) -> int:
     """
     Precondition: x and y are positive integers
     """

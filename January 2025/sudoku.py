@@ -1,10 +1,10 @@
-"""A class meant to model a Sudoku board, 
-and which is capable of returning all solutions to a given board.
-"""
 
 import copy
 
 class Sudoku:
+    """A class meant to model a Sudoku board, 
+    and which is capable of returning all solutions to a given board.
+    """
 
     grid: list[list[int]]
     digits: list[int]
@@ -134,7 +134,7 @@ class Sudoku:
         
         return result
 
-    
+# Tests
 if __name__ == '__main__':
     sudoku = Sudoku([[-1, -1, -1, 3, -1, -1, -1, -1, 7],
                      [-1, 4, -1, 8, -1, -1, -1, -1, -1],
@@ -160,4 +160,5 @@ if __name__ == '__main__':
     print(sudoku._check_square(4, 0, 0))
     print(sudoku._check_square(2, 8, 0))
     print(sudoku._check_square(5, 8, 2))
+    print(3 % 1)
     
