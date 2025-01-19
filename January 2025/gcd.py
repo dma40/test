@@ -38,5 +38,12 @@ def list_to_int(digits: list[int]) -> int:
     """
     result = 0
     for i in range(0, len(digits)):
-        result += digits[i] * (10 ** i)
+        result += digits[i] * (10 ** (9 - i))
     return result
+
+def sudoku_grid_to_list(digits: list[list[int]]) -> list[int]:
+    result = []
+    for i in range(0, len(digits)):
+        result.append(list_to_int(digits[i]))
+    return result
+
