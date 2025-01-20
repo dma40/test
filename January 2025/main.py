@@ -38,7 +38,6 @@ if __name__ == "__main__":
         if max > GLOBAL_MAX_GCD:
             GLOBAL_MAX_GCD, GLOBAL_MAX_GRID = max, local_max_grid
         
-        print("ok")
         print('\n')
         print(GLOBAL_MAX_GCD)
 
