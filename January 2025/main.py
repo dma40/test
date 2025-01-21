@@ -41,3 +41,8 @@ if __name__ == "__main__":
         print('\n')
         print(GLOBAL_MAX_GCD)
 
+    print(GLOBAL_MAX_GRID)
+    print('\n')
+    for i in range(0, len(GLOBAL_MAX_GRID)):
+        print(GLOBAL_MAX_GRID[4][i])
+
