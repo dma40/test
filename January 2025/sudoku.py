@@ -26,6 +26,7 @@ class Sudoku:
                 + "\nDigits: " + str(self.digits))
     
     # Methods that check if a certain placement is viable
+    # maybe also add a wrapper class Grid that has all of these methods in them
 
     def _has_digit(self, row: int, col: int) -> bool:
         """
