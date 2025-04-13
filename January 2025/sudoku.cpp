@@ -175,5 +175,22 @@ class Grid
 
 int main()
 {
+    vector<vector<int>> GRID = {
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1}
+    };
+
+    vector<int> DIGITS = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    Sudoku sudoku = Sudoku(GRID, DIGITS);
+    sudoku.solve(); // run this only after replacing with a real grid
+
     // Do something in this program
 }
