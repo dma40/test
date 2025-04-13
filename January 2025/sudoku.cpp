@@ -79,6 +79,19 @@ class Sudoku
         return true;
     }
 
+    bool Sudoku::canPlace(int row, int col, int num)
+    {
+        return (check_row_col(row, col, num) && check_square(row, col, num));
+    }
+
+    bool Sudoku::isContradiction(int row, int col)
+    {
+        for (int digit: digits)
+        {
+
+        }
+    }
+
     vector<int> Sudoku::find_empty()
     {
         for (int i = 0; i < 9; i++)
@@ -107,13 +120,34 @@ class Sudoku
 
         else 
         {
+            vector<int> coordinates = find_empty();
+            if (isContradiction(coordinates[0], coordinates[1]))
+            {
+                return {};
+            }
 
+            else 
+            {
+                for (int num: digits)
+                {
+                    if (canPlace(coordinates[0], coordinates[1], num))
+                    {
+                        grid[coordinates[0]][coordinates[1]] = num;
+                        result.reserve(result.size() + distance(solve().begin(), solve().end()));
+                        result.insert(result.end(), solve().begin(), solve().end());
+                        grid[coordinates[0]][coordinates[1]] = -1;
+                        // copy(solve().begin(), solve().end(), back_inserter(result));
+                    }
+                }
+            }
         }
 
         return result;
     }
 
 };
+
+// complete solve and the other things before doing other parts of this project
 
 class Grid 
 {
@@ -130,6 +164,11 @@ class Grid
     string Grid::toString()
     {
         return "";
+    }
+
+    vector<vector<int>> Grid::grid()
+    {
+        return grid;
     }
 
 };
