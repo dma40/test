@@ -1,6 +1,7 @@
 using namespace std;
 
 #include <vector>
+#include "Grid.h"
 
 class Grid 
 {
@@ -8,20 +9,20 @@ class Grid
         vector<int> digits;
         vector<vector<int>> grid;
 
-    Grid(vector<vector<int>> _grid, vector<int> _digits)
-    {
-        grid = _grid;
-        digits = _digits;
-    }
+        Grid(vector<vector<int>> _grid, vector<int> _digits)
+        {
+            grid = _grid;
+            digits = _digits;
+        }
 
-    string Grid::toString()
-    {
-        return "";
-    }
+        string toString()
+        {
+            return "";
+        }
 
-    vector<vector<int>> Grid::grid()
-    {
-        return grid;
-    }
+        vector<vector<int>> grid()
+        {
+            return grid;
+        }
 
 };

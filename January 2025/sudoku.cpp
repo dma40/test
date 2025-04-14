@@ -23,7 +23,7 @@ class Sudoku
         return "";
     }
 
-    bool Sudoku::solved()
+    bool solved()
     {
         for (vector row: grid)
         {
@@ -38,12 +38,12 @@ class Sudoku
         return true;
     }
 
-    bool Sudoku::has_digit(int x, int y)
+    bool has_digit(int x, int y)
     {
         return grid[x][y] == -1;
     }
 
-    bool Sudoku::check_square(int row, int col, int num)
+    bool check_square(int row, int col, int num)
     {
         int xpos = row / 3;
         int ypos = col / 3;
@@ -61,7 +61,7 @@ class Sudoku
         return true;
     }
 
-    bool Sudoku::check_row_col(int row, int col, int num)
+    bool check_row_col(int row, int col, int num)
     {
         for (int i = 0; i < 9; i++)
         {
@@ -82,12 +82,12 @@ class Sudoku
         return true;
     }
 
-    bool Sudoku::canPlace(int row, int col, int num)
+    bool canPlace(int row, int col, int num)
     {
         return (check_row_col(row, col, num) && check_square(row, col, num));
     }
 
-    bool Sudoku::isContradiction(int row, int col)
+    bool isContradiction(int row, int col)
     {
         for (int digit: digits)
         {
@@ -95,7 +95,7 @@ class Sudoku
         }
     }
 
-    vector<int> Sudoku::find_empty()
+    vector<int> find_empty()
     {
         for (int i = 0; i < 9; i++)
         {
@@ -111,7 +111,7 @@ class Sudoku
         return {0, 0};
     }
 
-    vector<Grid> Sudoku::solve()
+    vector<Grid> solve()
     {
         vector<Grid> result = vector<Grid>();
 
